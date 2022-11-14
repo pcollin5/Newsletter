@@ -1,12 +1,11 @@
 packages <- c("tidyverse", "tidycensus", "leaflet", "mapview", "DT", "sf",
               "knitr", "rmarkdown", "kableExtra", "RColorBrewer", "tigris",
               "directlabels", "officer", "flextable", "zoo", "directlabels",
-              "fmsb", "readxl", "wordcloud", "tm", "treemapify", "layer", "extrafont
-              ")
+              "fmsb", "readxl", "wordcloud", "tm", "treemapify", "layer", "extrafont")
 
 
 
-lapply(packages, install.packages, character.only = TRUE)
+lapply(packages, library, character.only = TRUE)
 
 
 #### load color scheme ####
@@ -83,3 +82,6 @@ table_function <- function(data_frame, caption) {
 remove_after_comma_function <- function(string){
   gsub(",.*","",string) 
 }
+
+census_api_key("0db6c1cb3f5986242af9f40f76060b289cee055c", overwrite = TRUE, install = TRUE)
+
