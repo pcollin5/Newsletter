@@ -2,7 +2,7 @@ packages <- c("tidyverse", "tidycensus", "leaflet", "mapview", "DT", "sf",
               "knitr", "rmarkdown", "kableExtra", "RColorBrewer", "tigris",
               "directlabels", "officer", "flextable", "zoo", "directlabels",
               "fmsb", "readxl", "wordcloud", "tm", "treemapify", "layer", "extrafont",
-              "ggfittext")
+              "ggfittext", "xtable")
 
 
 
@@ -73,7 +73,12 @@ table_function <- function(data_frame, caption) {
   
   table <- data_frame %>%
     kbl(caption = as_label(caption))%>%
-    kable_classic(full_width = FALSE, html_font = "Calibri")
+    kable_classic(full_width = FALSE, html_font = "Calibri")%>%
+    row_spec(0, font_size=12)%>%
+    kable_styling(font_size = 12) %>%
+    gsub("font-size: initial !important;", 
+         "font-size: 150% !important;", 
+         .)
   
   return(table)
 }
@@ -85,3 +90,4 @@ remove_after_comma_function <- function(string){
 }
 
 
+?kbl
