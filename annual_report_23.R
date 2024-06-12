@@ -3542,6 +3542,8 @@ emp_outcomes_totals <- joined_outcomes %>%
   rename("2023 Total" = "2023 Result", "2022 Total" = "2022 Result")%>%
   select(!Measure)
 
+emp_outcomes_totals
+
 joined_emp_with_totals <- full_join(joined_outcomes%>%
                                       filter(str_detect(Domain, "Employment")), emp_outcomes_totals)
 joined_emp_with_totals
